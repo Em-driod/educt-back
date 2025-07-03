@@ -20,7 +20,7 @@ export async function extractTextFromBuffer(buffer, mimetype, filename = '') {
         const extractedText = data.text || ''; // Get the extracted text
 
         if (!extractedText || extractedText.trim().length === 0) {
-          console.warn('[WARNING] pdf-extraction extracted no readable text. This might be a scanned PDF, empty, or a very complex layout.');
+          console.warn('[WARNING] . This might be a scanned PDF, empty, or a very complex layout.');
           // Even if not robust, we still need to throw if no text is found,
           // otherwise, your AI services will receive empty input.
           throw new Error('No readable text found in PDF. It might be an image-only document or has a complex structure.');

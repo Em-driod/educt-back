@@ -63,12 +63,12 @@ async function processQueue() {
           try {
             parsed = JSON.parse(match[0]);
           } catch (fallbackErr) {
-            console.error('❌ Fallback parse also failed.');
-            reject(new Error('Invalid JSON format even after fallback'));
+            console.error(' Fallback parse also failed.');
+            reject(new Error('Invalid the JSON format even after fallback'));
             continue;
           }
         } else {
-          console.error('❌ No JSON found in response');
+          console.error(' No JSON found in response');
           reject(new Error('No valid JSON object found in model output'));
           continue;
         }
@@ -76,7 +76,7 @@ async function processQueue() {
 
       resolve(parsed);
     } catch (err) {
-      console.error('❌ Unexpected error talking to Groq:', err);
+      console.error('Unexpected error talking to Groq:', err);
       reject(err);
     }
   }
