@@ -53,10 +53,10 @@ async function processQueue() {
       let parsed;
 
       try {
-        // Try parsing entire content directly
+        
         parsed = JSON.parse(content);
       } catch (err) {
-        console.warn('⚠️ Direct JSON parse failed. Attempting fallback...');
+        console.warn('it is direct JSON parse failed. Attempting fallback...');
 
         const match = content.match(/\{[\s\S]*\}/);
         if (match) {
