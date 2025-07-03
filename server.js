@@ -9,7 +9,7 @@ dotenv.config();
 import { extractTextFromBuffer } from './service/fileParser.js';
 import { generateInsights, generateAnalysis } from './service/aiService.js';
 import { generateContentWithLLM } from './service/aiserver.js';
-import { buildTacticalContentPrompt } from './utils/promptUtils.js';
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -96,7 +96,6 @@ app.post('/api/generate-content', async (req, res) => {
       });
     }
 
-    // For debugging - log the received parameters
     console.log('Received content generation request with:', {
       contentType,
       topic,
@@ -110,7 +109,7 @@ app.post('/api/generate-content', async (req, res) => {
       humorLevel
     });
 
-    // Call generateContentWithLLM with the individual parameters
+   
     const generatedText = await generateContentWithLLM({
       contentType,
       topic,
